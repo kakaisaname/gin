@@ -19,7 +19,7 @@ func Async(c *gin.Context)  {
 	var c_copy = c.Copy() //goroute 中请使用只读的Context,用Context.Copy可以返回一个只读的Context
 	go func() {
 		time.Sleep(5 * time.Second)
-		log.Println("Done! in path" + c_copy.Request.URL.Path)
+		log.Println("Done! in path" + c_copy.Request.URL.Path)  //5秒后打印
 	}()
 	c.String(http.StatusOK,"ok")
 }
